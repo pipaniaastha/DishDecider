@@ -71,4 +71,4 @@ explicitly ruled out as scope risks — do not reintroduce them.
 
 - [ ] Run `npm run build` one final time, confirm it's clean
 - [ ] Deploy to Vercel (or chosen host) and smoke-test the live URL in both Chrome-with-flag and ChatGPT's in-app browser
-- [ ] Fill in real Supabase + OpenAI keys in the deployment's environment variables (not `.env.local` — that stays local/untracked)
+- [ ] Fill in real Supabase + Groq keys in the deployment's environment variables (not `.env.local` — that stays local/untracked)

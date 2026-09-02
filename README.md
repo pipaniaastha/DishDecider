@@ -30,7 +30,7 @@ model call fails, so a flaky LLM response never breaks the live demo.
 
 ```bash
 npm install
-cp .env.local.example .env.local   # fill in Supabase + OpenAI keys
+cp .env.local.example .env.local   # fill in Supabase + Groq keys
 ```
 
 Run `supabase/schema.sql` in your Supabase project's SQL editor, then:

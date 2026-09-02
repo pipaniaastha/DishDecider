@@ -73,17 +73,17 @@ function buildPrompt(mode: Mode, payload: any): { system: string; user: string }
 }
 
 async function callModel(system: string, user: string): Promise<unknown> {
-  const apiKey = process.env.OPENAI_API_KEY;
-  if (!apiKey) throw new Error("OPENAI_API_KEY not configured");
+  const apiKey = process.env.GROQ_API_KEY;
+  if (!apiKey) throw new Error("GROQ_API_KEY not configured");
 
-  const res = await fetch("https://api.openai.com/v1/chat/completions", {
+  const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      model: "gpt-4o-mini",
+      model: "llama-3.3-70b-versatile",
       response_format: { type: "json_object" },
       messages: [
         { role: "system", content: system },
@@ -93,7 +93,7 @@ async function callModel(system: string, user: string): Promise<unknown> {
     }),
   });
 
-  if (!res.ok) throw new Error(`OpenAI call failed: ${res.status}`);
+  if (!res.ok) throw new Error(`Groq call failed: ${res.status}`);
   const data = await res.json();
   const content = data.choices?.[0]?.message?.content;
   if (!content) throw new Error("Empty model response");
