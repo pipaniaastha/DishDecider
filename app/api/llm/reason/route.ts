@@ -83,7 +83,7 @@ async function callModel(system: string, user: string): Promise<unknown> {
       Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      model: "llama-3.3-70b-versatile",
+      model: "openai/gpt-oss-20b",
       response_format: { type: "json_object" },
       messages: [
         { role: "system", content: system },
